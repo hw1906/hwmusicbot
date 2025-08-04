@@ -328,8 +328,8 @@ async def fetch_youtube_link_backup(query):
     except Exception as e:
         raise Exception(f"Backup Search API error: {e}")
     
-BOT_NAME = os.environ.get("BOT_NAME", "Frozen Music")
-BOT_LINK = os.environ.get("BOT_LINK", "https://t.me/vcmusiclubot")
+BOT_NAME = os.environ.get("BOT_NAME", "Hw Music")
+BOT_LINK = os.environ.get("BOT_LINK", "https://t.me/HwMusic_Bot")
 
 from pyrogram.errors import UserAlreadyParticipant, RPCError
 
@@ -400,10 +400,10 @@ async def start_handler(_, message):
     buttons = [
         [
             InlineKeyboardButton(f"➕ {add_me_text}", url=f"{BOT_LINK}?startgroup=true"),
-            InlineKeyboardButton(f"📢 {updates_text}", url="https://t.me/vibeshiftbots")
+            InlineKeyboardButton(f"📢 {updates_text}", url="https://t.me/HwMusicBot_Updates")
         ],
         [
-            InlineKeyboardButton(f"💬 {support_text}", url="https://t.me/Frozensupport1"),
+            InlineKeyboardButton(f"💬 {support_text}", url="https://t.me/hw_chats"),
             InlineKeyboardButton(f"❓ {help_text}", callback_data="show_help")
         ]
     ]
@@ -455,10 +455,10 @@ async def go_back_callback(_, callback_query):
     buttons = [
         [
             InlineKeyboardButton(f"➕ {add_me_text}", url=f"{BOT_LINK}?startgroup=true"),
-            InlineKeyboardButton(f"📢 {updates_text}", url="https://t.me/vibeshiftbots")
+            InlineKeyboardButton(f"📢 {updates_text}", url="https://t.me/HwMusicBot_Updates")
         ],
         [
-            InlineKeyboardButton(f"💬 {support_text}", url="https://t.me/Frozensupport1"),
+            InlineKeyboardButton(f"💬 {support_text}", url="https://t.me/hw_chats"),
             InlineKeyboardButton(f"❓ {help_text}", callback_data="show_help")
         ]
     ]
@@ -894,7 +894,7 @@ async def update_progress_caption(
 
 
 
-LOG_CHAT_ID = "@frozenmusiclogs"
+LOG_CHAT_ID = "@hwmusic_logs"
 
 async def fallback_local_playback(chat_id: int, message: Message, song_info: dict):
     playback_mode[chat_id] = "local"
@@ -1035,7 +1035,7 @@ async def callback_query_handler(client, callback_query):
                 await call_py.leave_call(chat_id)
             except Exception as e:
                 print("Local leave_call error:", e)
-            await asyncio.sleep(3)
+            await asyncio.sleep(1)
 
             try:
                 os.remove(skipped_song.get('file_path', ''))
