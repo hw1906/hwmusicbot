@@ -932,7 +932,7 @@ async def fallback_local_playback(chat_id: int, message: Message, song_info: dic
         one_line = _one_line_title(song_info["title"])
         base_caption = (
             "<blockquote>"
-            "<b>🎧 Frozen ✘ Music Streaming</b> (Local Playback)\n\n"
+            "<b>🎧 HW ✘ Music Streaming</b> (Local Playback)\n\n"
             f"❍ <b>Title:</b> {one_line}\n"
             f"❍ <b>Requested by:</b> {song_info['requester']}"
             "</blockquote>"
@@ -1035,7 +1035,7 @@ async def callback_query_handler(client, callback_query):
                 await call_py.leave_call(chat_id)
             except Exception as e:
                 print("Local leave_call error:", e)
-            await asyncio.sleep(1)
+            await asyncio.sleep(2)
 
             try:
                 os.remove(skipped_song.get('file_path', ''))
